@@ -1,0 +1,374 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.screen {
+    display: none;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+.screen.active {
+    display: block;
+}
+
+h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #34495e;
+    margin: 20px 0 15px;
+}
+
+.content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.questionnaires-info {
+    background: #e8f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.questionnaires-info ul {
+    list-style-position: inside;
+    margin-top: 10px;
+}
+
+.questionnaires-info li {
+    margin: 5px 0;
+}
+
+.feedback-note {
+    font-style: italic;
+    color: #7f8c8d;
+    background: #f9f9f9;
+    padding: 10px;
+    border-left: 4px solid #3498db;
+}
+
+.consent-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.consent-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Прогресс-бар */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #2ecc71;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+.question-counter {
+    font-size: 14px;
+    color: #7f8c8d;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+/* Вопросы опросников */
+.question-item {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #3498db;
+}
+
+.question-text {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.options input[type="radio"] {
+    cursor: pointer;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .screen {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 20px;
+    }
+    
+    .consent-buttons {
+        flex-direction: column;
+    }
+    
+    .options {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Стили для результатов */
+.results-summary {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.profile-chart {
+    height: 300px;
+    margin: 20px 0;
+    position: relative;
+}
+
+/* Стили для карточек шкал */
+.scale-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.scale-card h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+/* Горизонтальные бары для шкал */
+.scale-bars {
+    margin: 15px 0;
+}
+
+.bar-item {
+    margin-bottom: 15px;
+}
+
+.bar-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.bar-label span:first-child {
+    font-weight: 500;
+    color: #34495e;
+}
+
+.bar-label span:last-child {
+    color: #3498db;
+    font-weight: 600;
+}
+
+.bar-container {
+    width: 100%;
+    height: 25px;
+    background-color: #ecf0f1;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    border-radius: 15px;
+    transition: width 1s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.bar-marker {
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #e74c3c;
+    z-index: 2;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+/* Маркеры нормативных значений */
+.norm-marker {
+    position: absolute;
+    top: -25px;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #7f8c8d;
+    white-space: nowrap;
+}
+
+/* Интерпретация */
+.scale-interpretation {
+    margin-top: 15px;
+    padding: 15px;
+    background: #e8f4f8;
+    border-radius: 8px;
+    font-style: italic;
+    border-left: 4px solid #3498db;
+}
+
+/* Кнопки действий */
+.results-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.results-actions .btn {
+    min-width: 200px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scale-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.scale-card:nth-child(2) { animation-delay: 0.1s; }
+.scale-card:nth-child(3) { animation-delay: 0.2s; }
+.scale-card:nth-child(4) { animation-delay: 0.3s; }
+.scale-card:nth-child(5) { animation-delay: 0.4s; }
+.scale-card:nth-child(6) { animation-delay: 0.5s; }
+
+/* Для печати */
+@media print {
+    .results-actions,
+    #restartFromResults {
+        display: none !important;
+    }
+    
+    .scale-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}

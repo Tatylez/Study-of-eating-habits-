@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Исследование пищевых привычек</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Экран 1: Вступительное слово и согласие -->
+        <div id="welcome-screen" class="screen active">
+            <div class="content">
+                <h1>Уважаемый респондент!</h1>
+                
+                <p>Меня зовут <strong>Данилина Татьяна Владимировна</strong>, я являюсь студенткой 5 курса МГППУ по направлению подготовки "Клиническая психология и психотерапия". В рамках данной научной работы под руководством профессора, доктора психологических наук <strong>Холмогоровой Аллы Борисовны</strong> планируется исследовать вопрос пищевых привычек у лиц с различным весом, их взаимосвязь с интероцептивной способностью и образом тела.</p>
+                
+                <h2>Цель исследования:</h2>
+                <p>Результаты данного исследования будут использованы для совершенствования диагностики нарушений пищевого поведения и психологической помощи тем, кто испытывает трудности в перестройке своих пищевых привычек. Полученная информация будет использована в обобщенной статистической форме для научного анализа.</p>
+                
+                <h2>Процедура исследования:</h2>
+                <p>В ходе исследования Вам будет предложено заполнить небольшую анкету и несколько опросников, это займет у Вас не более 35 минут. Участие в исследовании добровольное. К участию приглашаются лица старше 18 лет, которые заинтересованы в данной теме.</p>
+                
+                <div class="questionnaires-info">
+                    <p><strong>Вам предстоит заполнить:</strong></p>
+                    <ul>
+                        <li>Опросник 1 — 23 утверждения</li>
+                        <li>Опросник 2 — 32 утверждения</li>
+                        <li>Опросник 3 — 16 утверждений</li>
+                        <li>Опросник 4 — 33 утверждения</li>
+                        <li>Опросник 5 — 51 утверждение</li>
+                    </ul>
+                </div>
+                
+                <h2>Конфиденциальность:</h2>
+                <p>Исследование проводится в строгом соответствии с этическим кодексом Российского Психологического Общества (РПО). Оно подразумевает <strong>полную анонимность</strong>. Персонифицирующие участников сведения не будут запрашиваться. Данные исследования будут храниться в безопасном месте, доступ к которому будут иметь только исследователи. Никакие индивидуальные показатели не будут раскрыты третьим лицам. Вы можете прервать участие в исследовании без объяснения причины, закрыв страницу.</p>
+                
+                <p class="feedback-note">На последней странице Вы можете запросить обратную связь по Вашим результатам (с соблюдением принципов анонимности и конфиденциальности).</p>
+                
+                <div class="consent-section">
+                    <p>Просим Вас подтвердить свое согласие на участие в исследовании:</p>
+                    <div class="consent-buttons">
+                        <button id="consent-yes" class="btn btn-primary">Да, я согласен участвовать</button>
+                        <button id="consent-no" class="btn btn-secondary" onclick="window.close()">Нет, я не участвую</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Экран 2: Демографические данные -->
+        <div id="demographics-screen" class="screen">
+            <div class="content">
+                <h2>Небольшая информация о Вас</h2>
+                <form id="demographics-form">
+                    <div class="form-group">
+                        <label>Ваш возраст:</label>
+                        <input type="number" id="age" min="18" max="100" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Ваш пол:</label>
+                        <select id="gender" required>
+                            <option value="">Выберите...</option>
+                            <option value="female">Женский</option>
+                            <option value="male">Мужской</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Ваш рост (в см):</label>
+                        <input type="number" id="height" min="100" max="250" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Ваш вес (в кг):</label>
+                        <input type="number" id="weight" min="30" max="200" step="0.1" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Далее</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Экран 3: Опросник 1 -->
+        <div id="questionnaire1-screen" class="screen">
+            <div class="content">
+                <div class="progress-bar">
+                    <div class="progress" id="progress1"></div>
+                </div>
+                <h2>Опросник 1 <span class="question-counter">(1/5)</span></h2>
+                <div id="q1-questions"></div>
+                <button id="next-to-q2" class="btn btn-primary" style="display: none;">Перейти к следующему опроснику</button>
+            </div>
+        </div>
+
+        <!-- Экран 4: Опросник 2 -->
+        <div id="questionnaire2-screen" class="screen">
+            <div class="content">
+                <div class="progress-bar">
+                    <div class="progress" id="progress2"></div>
+                </div>
+                <h2>Опросник 2 <span class="question-counter">(2/5)</span></h2>
+                <div id="q2-questions"></div>
+                <button id="next-to-q3" class="btn btn-primary" style="display: none;">Перейти к следующему опроснику</button>
+            </div>
+        </div>
+
+        <!-- Экран 5: Опросник 3 -->
+        <div id="questionnaire3-screen" class="screen">
+            <div class="content">
+                <div class="progress-bar">
+                    <div class="progress" id="progress3"></div>
+                </div>
+                <h2>Опросник 3 <span class="question-counter">(3/5)</span></h2>
+                <div id="q3-questions"></div>
+                <button id="next-to-q4" class="btn btn-primary" style="display: none;">Перейти к следующему опроснику</button>
+            </div>
+        </div>
+
+        <!-- Экран 6: Опросник 4 -->
+        <div id="questionnaire4-screen" class="screen">
+            <div class="content">
+                <div class="progress-bar">
+                    <div class="progress" id="progress4"></div>
+                </div>
+                <h2>Опросник 4 <span class="question-counter">(4/5)</span></h2>
+                <div id="q4-questions"></div>
+                <button id="next-to-q5" class="btn btn-primary" style="display: none;">Перейти к следующему опроснику</button>
+            </div>
+        </div>
+
+        <!-- Экран 7: Опросник 5 -->
+        <div id="questionnaire5-screen" class="screen">
+            <div class="content">
+                <div class="progress-bar">
+                    <div class="progress" id="progress5"></div>
+                </div>
+                <h2>Опросник 5 <span class="question-counter">(5/5)</span></h2>
+                <div id="q5-questions"></div>
+                <button id="finish-survey" class="btn btn-primary" style="display: none;">Завершить исследование</button>
+            </div>
+        </div>
+
+        <!-- Экран 8: Завершение -->
+        <div id="finish-screen" class="screen">
+            <div class="content text-center">
+                <h2>Благодарим за участие!</h2>
+                <p>Ваши ответы приняты и будут использованы в научном исследовании.</p>
+                <p class="feedback-note">Если вы хотите получить обратную связь по своим результатам, отправьте письмо на адрес: <a href="mailto:research@example.com">research@example.com</a></p>
+                <button id="restart" class="btn btn-secondary">Пройти заново</button>
+            </div>
+        </div>
+
+<!-- После finish-screen добавьте: -->
+
+<!-- Экран 9: Подробные результаты -->
+<div id="results-screen" class="screen">
+    <div class="content">
+        <h2>Ваши результаты исследования</h2>
+        
+        <!-- Общий профиль -->
+        <div class="results-summary">
+            <h3>Общий профиль пищевого поведения</h3>
+            <div class="profile-chart" id="profileChart"></div>
+        </div>
+        
+        <!-- Детальные результаты по шкалам -->
+        <div class="scales-results">
+            <h3>Результаты по всем шкалам</h3>
+            
+            <div class="scale-card" id="scale1">
+                <h4>Опросник 1: Пищевые привычки</h4>
+                <div class="scale-bars"></div>
+                <p class="scale-interpretation"></p>
+            </div>
+            
+            <div class="scale-card" id="scale2">
+                <h4>Опросник 2: Интероцептивная способность</h4>
+                <div class="scale-bars"></div>
+                <p class="scale-interpretation"></p>
+            </div>
+            
+            <div class="scale-card" id="scale3">
+                <h4>Опросник 3: Образ тела</h4>
+                <div class="scale-bars"></div>
+                <p class="scale-interpretation"></p>
+            </div>
+            
+            <div class="scale-card" id="scale4">
+                <h4>Опросник 4: Эмоциональное едение</h4>
+                <div class="scale-bars"></div>
+                <p class="scale-interpretation"></p>
+            </div>
+            
+            <div class="scale-card" id="scale5">
+                <h4>Опросник 5: Пищевые ограничения</h4>
+                <div class="scale-bars"></div>
+                <p class="scale-interpretation"></p>
+            </div>
+        </div>
+        
+        <!-- Кнопки действий -->
+        <div class="results-actions">
+            <button id="downloadPDF" class="btn btn-primary">📥 Скачать PDF с результатами</button>
+            <button id="emailResults" class="btn btn-secondary">📧 Отправить на почту</button>
+            <button id="restartFromResults" class="btn btn-secondary">🔄 Пройти заново</button>
+        </div>
+        
+        <p class="feedback-note">
+            * Результаты представлены в сравнении с нормативными значениями. 
+            Высокие баллы могут указывать на наличие особенностей пищевого поведения.
+        </p>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
